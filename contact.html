@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Contact Us</title>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+
+    <!-- AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- jQuery IsLoading -->
+    <link rel="stylesheet" href="contactUs/Libraries/isLoading/style.css" />
+    <script src="contactUs/Libraries/isLoading/jquery.isloading.js"></script>
+
+    <script src="contactUs/js/contactUs.js"></script>
+</head>
+<body>
+    <div class="container">
+        <br />
+        <div class="form-horizontal">
+            <div class="row">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-10">
+                    <div class="panel panel-info" id="notesSection">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Contact Us</h3>
+                        </div>
+                        <div class="panel-body" ng-app="ngApp" ng-controller="contactCtrl">
+                            <form name="userForm">
+                                <div class="form-group" ng-class="{ 'has-error': userForm.username.$invalid && userForm.username.$dirty }">
+                                    <label for="inputName" class="col-sm-2 control-label">Name <bold style="color: red">*</bold></label>
+                                    <div class="col-sm-10">
+                                        <input id="inputName" type="text" class="form-control" placeholder="Tell us your name" name="username" ng-model="user.name" required />
+                                    </div>
+                                </div>
+                                <div class="form-group" ng-class="{ 'has-error': userForm.userphone.$invalid && userForm.userphone.$dirty }">
+                                    <label for="inputPhone" class="col-sm-2 control-label">Phone <bold style="color: red">*</bold></label>
+                                    <div class="col-sm-10">
+                                        <input type="tel" class="form-control" id="inputPhone" placeholder="Your phone number" name="userphone" ng-model="user.phone" required />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                                    <div class="col-sm-10">
+                                        <input type="email" class="form-control" id="inputEmail3" placeholder="Your email" ng-model="user.email" ng-model-options="{'allowInvalid': true}" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputComments" class="col-sm-2 control-label">Note</label>
+                                    <div class="col-sm-10">
+                                        <textarea id="inputComments" type="text" class="form-control" placeholder="Leave your comments here" style="max-width: 100%" ng-model="user.comment"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div id="actionSection" class="col-sm-12 text-center">
+                                        <button id="btnSubmit" type="button" class="btn btn-lg btn-info" ng-click="Submit()" ng-disabled="sending || userForm.username.$invalid || userForm.userphone.$invalid">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-1"></div>
+            </div>
+        </div>
+        <br />
+    </div>
+</body>
+</html>
